@@ -1,0 +1,36 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "app1"
+  description: This is a basic example application
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-label-selector: 'entity-id=app1'
+    backstage.io/kubernetes-namespace: default
+    argocd/app-name: "app1"
+  links:
+    - url: https://github.com/brunokino/microservice-bootstrap/tree/main/apps/uat/app1
+      title: Repo URL
+      icon: github
+spec:
+  owner: guests
+  lifecycle: experimental
+  type: service
+  system: "app1"
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: "app1"
+  description: An example system for demonstration purposes
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://github.com/brunokino/microservice-bootstrap/tree/main/apps/uat/app1
+      title: App 1 Repo 
+      icon: github
+spec:
+  owner: guests
+  lifecycle: experimental
+  type: service

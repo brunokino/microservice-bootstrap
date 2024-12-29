@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: backstage-templates-for-microservices-bootstrap
+  description: A public collection of Backstage templates for bootstraping microservices
+spec:
+  targets:
+    - ./backstage_templates/bootstrap-template.yaml

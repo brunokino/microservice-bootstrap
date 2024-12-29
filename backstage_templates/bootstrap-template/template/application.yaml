@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ${{values.name}}
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/brunokino/microservice-bootstrap
+    targetRevision: HEAD
+    path: 'apps/${{values.env}}/${{values.name}}/chart'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: 'default'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

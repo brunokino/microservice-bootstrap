@@ -1,0 +1,36 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.name}}-${{values.env}}
+  description: Microservice - ${{values.name}} for ${{values.env}} environment
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-label-selector: 'entity-id=${{values.name}}-${{values.env}}'
+    backstage.io/kubernetes-namespace: default
+    argocd/app-name: ${{values.name}}
+  links:
+    - url: https://github.com/brunokino/microservice-bootstrap/tree/main/apps/${{values.env}}/${{values.name}}
+      title: Repo URL
+      icon: github
+spec:
+  owner: guests
+  lifecycle: experimental
+  type: service
+  system: ${{values.name}}-${{values.env}}
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: ${{values.name}}-${{values.env}}
+  description: Microservice - ${{values.name}} for ${{values.env}} environment
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://github.com/brunokino/microservice-bootstrap/tree/main/apps/${{values.env}}/${{values.name}}s
+      title: GitOps repo 
+      icon: github
+spec:
+  owner: guests
+  lifecycle: experimental
+  type: service

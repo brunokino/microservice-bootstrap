@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: 'https://github.com/brunokino/microservice-bootstrap'
     targetRevision: HEAD
-    path: 'apps/uat/app1'
+    path: 'apps/uat/app1/chart'
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: 'app1'
+    namespace: 'default'
   syncPolicy:
     automated:
       prune: true

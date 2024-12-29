@@ -5,4 +5,4 @@ metadata:
   description: A public collection of Backstage templates for bootstraping microservices
 spec:
   targets:
-    - ./backstage_templates/bootstrap-template.yaml
+    - ./backstage_templates/bootstrap-template/bootstrap-template.yaml

@@ -1,4 +1,0 @@
-dependencies:
-- name: nginx
-  version: 9.3.6 # Substitua pela versão desejada
-  repository: https://charts.bitnami.com/bitnami

@@ -27,12 +27,16 @@ spec:
           name: ${{ parameters.name }}
           env: ${{ parameters.env }}
       name: Fetch Base
-    - id: publish
-      name: Publishing to a Github repository
-      action: publish:github
+    - id: open-pr
+      name: "Open PR in GitOps Repository"
+      action: publish:github:pull-request
       input:
-        repoUrl: https://github.com/brunokino/microservice-bootstrap/tree/main/apps/${{ parameters.env }}/${{ parameters.name }}
-        branch: main
+        repoUrl: github.com?owner=brunokino&repo=microservice-bootstrap
+        branchName: bootstrap-${{ parameters.name }}-app
+        title: ':robot: [backstage-bot] Add new app - ${{ parameters.name }}'
+        description: |
+          # New App: ${{ parameters.name }}
+        targetPath: apps/${{ parameters.env }}/${{ parameters.name }}
     - id: register
       name: Register
       action: catalog:register
@@ -41,6 +45,9 @@ spec:
         catalogInfoPath: 'catalog-info.yaml'
   output:
     links:
+      - title: Go to GitOps Pull Request
+        icon: github
+        url: ${{ steps.open-pr.output.remoteUrl }}
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}

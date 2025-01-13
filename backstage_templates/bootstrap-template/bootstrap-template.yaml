@@ -22,7 +22,7 @@ spec:
     - action: fetch:template
       id: fetch-base
       input:
-        url: ./bootstrap-template/
+        url: ./template/
         values:
           name: ${{ parameters.name }}
           env: ${{ parameters.env }}

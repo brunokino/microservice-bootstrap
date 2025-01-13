@@ -37,17 +37,17 @@ spec:
         description: |
           # New App: ${{ parameters.name }}
         targetPath: apps/${{ parameters.env }}/${{ parameters.name }}
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
-        catalogInfoPath: 'catalog-info.yaml'
+    # - id: register
+    #   name: Register
+    #   action: catalog:register
+    #   input:
+    #     repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+    #     catalogInfoPath: 'catalog-info.yaml'
   output:
     links:
       - title: Go to GitOps Pull Request
         icon: github
         url: ${{ steps.open-pr.output.remoteUrl }}
-      - title: Open in catalog
-        icon: catalog
-        entityRef: ${{ steps['register'].output.entityRef }}
+      # - title: Open in catalog
+      #   icon: catalog
+      #   entityRef: ${{ steps['register'].output.entityRef }}

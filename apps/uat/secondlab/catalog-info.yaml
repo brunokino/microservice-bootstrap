@@ -1,0 +1,36 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: secondlab-uat
+  description: Microservice - secondlab for uat environment
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-label-selector: 'entity-id=secondlab-uat'
+    backstage.io/kubernetes-namespace: default
+    argocd/app-name: secondlab
+  links:
+    - url: https://github.com/brunokino/microservice-bootstrap/tree/main/apps/uat/secondlab
+      title: Repo URL
+      icon: github
+spec:
+  owner: guests
+  lifecycle: experimental
+  type: service
+  system: secondlab-uat
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: secondlab-uat
+  description: Microservice - secondlab for uat environment
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://github.com/brunokino/microservice-bootstrap/tree/main/apps/uat/secondlabs
+      title: GitOps repo 
+      icon: github
+spec:
+  owner: guests
+  lifecycle: experimental
+  type: service
